@@ -5,6 +5,7 @@ import './styles.css'
 
 import{
     CLOUD,
+    WINDY,
 } from './../../constants/weathers'
 
 const data={
@@ -13,14 +14,44 @@ const data={
     humidity:10,
     wind: '10 m/s'
 }
+const data2={
+    temperature: 17,
+    weatherState:WINDY,
+    humidity:99,
+    wind: '10 m/s'
+}
 
-const WeatherLocation = () => (
-    <div className="weatherLocationCont">
-        <Location city={'Villarreal'}/>
-        <WeatherData data={data}/>
+class WeatherLocation extends React.Component{
+
+    constructor(){
+        super();
+        this.state={
+            city:"Valencia",
+            data: data,
+        };
+    }
+
+    handleUpdateClick= () => {
+        console.log(data2);
+        this.setState({
+            /* city: 'Fuente Segura', */
+            data: data2,
+        });
+    }
+    render(){
+        const{city,data}= this.state;
         
-    </div>
-);
+        return(
+        <div className="weatherLocationCont">
+            <Location city={city}/>
+            <WeatherData data={data}/>
+            <button onClick={this.handleUpdateClick}>Actualizar</button>
+        </div>);
+        
+    }
+}
+    
+
 
 
 export default WeatherLocation;
