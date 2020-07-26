@@ -8,6 +8,12 @@ import{
     WINDY,
 } from './../../constants/weathers'
 
+const location= "Fuente Segura,ES";
+const api_key= "f41e6efd25d304d6691b4bc1e8781d8e";
+const url_base_weather= "api.openweathermap.org/data/2.5/weather";
+
+const api_weather = `${url_base_weather}?q=${location}&appid=${api_key}`;
+
 const data={
     temperature: 7,
     weatherState:CLOUD,
@@ -20,7 +26,25 @@ const data2={
     humidity:99,
     wind: '10 m/s'
 }
+/* CÓDIGO EJEMPLO PROMISES */
+/* 
+    let promesa= new Promise((resolve, rejected)) => {
+        setTimeout(() =>{
+            resolve("Exito total!");
+        },2000);
+        });
+    console.log("Ahora comienza");
 
+    promesa.then((mensaje) => {
+
+        console.log(mensaje);
+        console.log("Acabado");
+    }).catch((error) => {
+        console.log(mensaje);
+    });
+
+    
+} */
 class WeatherLocation extends React.Component{
 
     constructor(){
@@ -31,10 +55,18 @@ class WeatherLocation extends React.Component{
         };
     }
 
-    handleUpdateClick= () => {
-        console.log(data2);
+    handleUpdateClick = () => {
+        fetch(api_weather).then(resolve =>{
+
+            
+            return resolve.json();
+        }).then(data => {
+            console.log(data);
+            debugger;
+        });
+
         this.setState({
-            /* city: 'Fuente Segura', */
+        
             data: data2,
         });
     }
