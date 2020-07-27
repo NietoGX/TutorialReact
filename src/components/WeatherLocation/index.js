@@ -8,9 +8,9 @@ import{
     WINDY,
 } from './../../constants/weathers'
 
-const location= "Fuente Segura,ES";
+const location= "Castellon,ES";
 const api_key= "f41e6efd25d304d6691b4bc1e8781d8e";
-const url_base_weather= "api.openweathermap.org/data/2.5/weather";
+const url_base_weather= "http://api.openweathermap.org/data/2.5/weather";
 
 const api_weather = `${url_base_weather}?q=${location}&appid=${api_key}`;
 
@@ -57,13 +57,14 @@ class WeatherLocation extends React.Component{
 
     handleUpdateClick = () => {
         fetch(api_weather).then(resolve =>{
-
-            
+            console.log(resolve);
+           
             return resolve.json();
         }).then(data => {
             console.log(data);
             debugger;
         });
+
 
         this.setState({
         
