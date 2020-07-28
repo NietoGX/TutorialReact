@@ -23,7 +23,7 @@ class App extends React.Component {
     super();
 
     this.state={
-      city:"Nueva ciudsssad"
+      city:null
     };
   }
 
@@ -56,7 +56,8 @@ class App extends React.Component {
           <Col xs={12} md={6}>
             <Paper elevation="4">
               <div className="details"> 
-                <ForecastExtended city={city}/>
+              {!city ? <h1> No se ha seleccionado ninguna ciudad</h1> :
+                <ForecastExtended city={city} />}
               </div>
               </Paper>
           </Col>
