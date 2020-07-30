@@ -52,11 +52,6 @@ class WeatherLocation extends React.Component{
 
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        
-    }
-    
-
     handleUpdateClick = () => {
         const api_weather = getUrlWeatherByCity(this.state.city);
         fetch(api_weather).then(resolve =>{

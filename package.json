@@ -15,8 +15,11 @@
     "react-flexbox-grid": "^2.1.2",
     "react-redux": "^7.2.1",
     "react-scripts": "3.4.1",
+    "react-thunk": "^1.0.0",
     "react-weathericons": "^1.0.4",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "thunk": "^0.0.1",
     "yarn": "^1.22.4"
   },
   "scripts": {
